@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - ../base
 patches:
-  - path: nginx-values.yaml
+  - path: nginx-ingress-values.yaml
     target:
       kind: HelmRelease
