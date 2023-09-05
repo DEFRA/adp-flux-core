@@ -4,5 +4,5 @@ metadata:
   name: repository-nginx-ingress
   namespace: config-cluster-flux
 spec:
-  interval: 10m0s
+  interval: 5m0s
   url: https://helm.nginx.com/stable
