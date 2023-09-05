@@ -1,8 +1,10 @@
 # adp-flux-core
 Flux v2 configuration for ADP cluster core components amd services
 
+## Introduction
+This repository contains the Flux configuration for the ADP cluster core components and services. The repository is structured to support multiple environments (snd, dev, tst, pre, prd) and multiple clusters per environment. The repository is structured as follows:
+
 ## Repository Structure
-The repository is structured as follows:
 
 * `clusters` - Flux configuration for the Flux System (controllers etc) per environment
 * `infra` - Flux configuration for the core services e.g. Nginx Plus per environment
@@ -28,8 +30,4 @@ The repository is structured as follows:
 │       └── 01/02
 ├── core
 │   ├── nginx-ingress                                
-│ 
-└── apps                                            
-    └── snd                                         
-        └── 01
 ```
