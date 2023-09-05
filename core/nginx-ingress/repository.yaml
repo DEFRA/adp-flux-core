@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: nginx-ingress
+  name: repository-nginx-ingress
   namespace: config-cluster-flux
 spec:
   interval: 10m0s
