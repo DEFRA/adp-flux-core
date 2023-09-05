@@ -10,7 +10,7 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: nginx-ingress
+        name: repository-nginx-ingress
   install:
     createNamespace: true
   interval: 5m0s
