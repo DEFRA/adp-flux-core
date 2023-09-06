@@ -9,6 +9,7 @@ This repository contains the Flux configuration for the ADP cluster core compone
 * `clusters` - Flux configuration for the Flux System (controllers etc) per environment
 * `infra` - Flux configuration for the core services e.g. Nginx Plus per environment
 * `core` - Contains the manifests for the core service (HelmRelease, HelmRepository)
+* `services` - Contains a GitRepository and Kustomization per environment that points to a path in the [adp-flux-services](https://github.com/DEFRA/adp-flux-services) repostory.
 ```
 
 ├── clusters
@@ -29,5 +30,13 @@ This repository contains the Flux configuration for the ADP cluster core compone
 │       ├── base
 │       └── 01/02
 ├── core
-│   ├── nginx-ingress                                
+│   ├── nginx-ingress
+|
+|
+|
+├── services
+   ├── snd                                          
+      ├── 01
+
+                                 
 ```
