@@ -12,6 +12,7 @@ spec:
   timeout: 3m
   prune: true
   path: ./services/environments/snd/01
+  serviceAccountName: kustomize-controller
   postBuild:
     substitute:
       ENVIRONMENT: ""
