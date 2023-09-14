@@ -12,4 +12,8 @@ spec:
   timeout: 3m
   prune: true
   path: ./services/environments/snd/01
- 
+  postBuild:
+    substitute:
+      ENVIRONMENT: ""
+      ACR_NAME: ""
+      NAMESPACE: ""
