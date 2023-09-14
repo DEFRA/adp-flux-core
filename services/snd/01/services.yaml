@@ -7,7 +7,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: services-repository
-    namespace: config-services-flux
+    namespace: flux-system
   interval: 5m
   timeout: 3m
   prune: true
