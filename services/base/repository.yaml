@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: features/kb/flux-changes
+    branch: main
   url: https://github.com/DEFRA/adp-flux-services/
