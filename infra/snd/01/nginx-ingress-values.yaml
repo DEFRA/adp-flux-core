@@ -10,5 +10,5 @@ spec:
   values:
     controller:
       image:
-        repository: "ssvcdoinfcr3401.azurecr.io/image/nginx-plus-ingress"  #Explore best way to set the repository name.
+        repository: "ssvadpinfcr3401.azurecr.io/image/nginx-plus-ingress"  #Explore best way to set the repository name.
         tag: 3.2.1 
