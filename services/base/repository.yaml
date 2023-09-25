@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: aa/test-kustomizations
+    branch: features/kb/update-repo-structure
   url: https://github.com/DEFRA/adp-flux-services/
