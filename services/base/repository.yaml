@@ -7,4 +7,6 @@ spec:
   interval: 5m
   ref:
     branch: main
-  url: https://github.com/DEFRA/adp-flux-services/
+  url: ssh://git@github.com/DEFRA/adp-flux-services/
+  secretRef:
+    name: adp-flux-services-secret
