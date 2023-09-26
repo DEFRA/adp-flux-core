@@ -9,4 +9,4 @@ spec:
     branch: features/kb/update-repo-structure
   url: ssh://git@github.com/DEFRA/adp-flux-services/
   secretRef:
-    name: config-cluster-flux-genkey
+    name: adp-flux-services-secret
