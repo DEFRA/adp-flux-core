@@ -6,5 +6,7 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: gg/aso-initial-setup
-  url: https://github.com/DEFRA/adp-flux-services/
+    branch: fixthisbranch
+  url: ssh://git@github.com/DEFRA/adp-flux-services/
+  secretRef:
+    name: adp-flux-services-secret
