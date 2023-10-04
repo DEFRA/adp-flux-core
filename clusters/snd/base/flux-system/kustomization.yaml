@@ -9,16 +9,17 @@ patches:
       apiVersion: apps/v1
       kind: Deployment
       metadata:
-        name: "(source-controller|image-reflector-controller)"
+        namespace: "flux-system"
+        name: "controller"
       spec:
         provider: azure
         selector:
           matchLabels:
-            app: source-controller
+            app: "(source-controller|image-reflector-controller)"
         template:
           metadata:
             labels:
-              app: "(source-controller|image-reflector-controller)""
+              app: "(source-controller|image-reflector-controller)"
               app.kubernetes.io/name: microsoft.flux
           spec:
             containers:
