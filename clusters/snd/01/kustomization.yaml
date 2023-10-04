@@ -3,6 +3,4 @@ kind: Kustomization
 metadata:
   name: cluster-base
 resources: 
-#  - ../../base
   - ../base/flux-system
-#  - cluster-config.yamlcl
