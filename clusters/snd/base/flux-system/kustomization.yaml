@@ -4,7 +4,8 @@ resources:
 - gotk-components.yaml
 
 patches:
-  - patch: |
+
+  - patch: |-
       apiVersion: apps/v1
       kind: Deployment
       metadata:
