@@ -1,0 +1,20 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-config
+  namespace: config-cluster-flux
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: platform-repository
+    namespace: config-cluster-flux
+  interval: 5m
+  timeout: 3m
+  prune: false
+  targetNamespace: flux-system
+  path: ./clusters/environments/snd/01
+  postBuild:
+    substitute:
+      ENVIRONMENT: "snd"
+      ACR_NAME: "sndadpinfcr1401"
+      NAMESPACE: "config-cluster-flux"
