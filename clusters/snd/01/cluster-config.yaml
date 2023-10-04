@@ -12,7 +12,7 @@ spec:
   timeout: 3m
   prune: false
   targetNamespace: flux-system
-  path: ./clusters/environments/snd/01
+  path: ./clusters/snd/01
   postBuild:
     substitute:
       ENVIRONMENT: "snd"
