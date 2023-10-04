@@ -4,5 +4,5 @@ metadata:
   name: cluster-base
 resources: 
   - ../../base
-  #- ../base/flux-system
+  - ../base/flux-system
   - cluster-config.yaml
