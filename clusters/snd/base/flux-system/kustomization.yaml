@@ -10,16 +10,16 @@ patches:
       kind: Deployment
       metadata:
         namespace: "flux-system"
-        name: "controller"
+        name: "source-controller"
       spec:
         provider: azure
         selector:
           matchLabels:
-            app: "(source-controller|image-reflector-controller)"
+            app: "source-controller"
         template:
           metadata:
             labels:
-              app: "(source-controller|image-reflector-controller)"
+              app: "source-controller"
               app.kubernetes.io/name: microsoft.flux
           spec:
             containers:
@@ -30,4 +30,32 @@ patches:
       
     target:
       kind: Deployment
-      name: "(source-controller|image-reflector-controller)"
+      name: "source-controller"
+
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        namespace: "flux-system"
+        name: "image-reflector-controller"
+      spec:
+        provider: azure
+        selector:
+          matchLabels:
+            app: "image-reflector-controller"
+        template:
+          metadata:
+            labels:
+              app: "image-reflector-controller"
+              app.kubernetes.io/name: microsoft.flux
+          spec:
+            containers:
+            - name: manager
+              env:
+              - name: AZURE_CLIENT_ID
+                value: d9cb0e6f-c3c2-41f1-ab80-f0b9686bf127
+      
+    target:
+      kind: Deployment
+      name: "image-reflector-controller"
+      
