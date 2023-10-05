@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: flux
+  namespace: config-cluster-flux
+spec:
+  type: oci
+  interval: 5m
+  url: oci://ssvadpinfcr3401.azurecr.io/helm
+  provider: azure

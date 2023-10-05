@@ -2,7 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- gotk-components.yaml
+- helm-repository.yaml
+- helm-release.yaml
 
 patches:
   - patch: |
@@ -24,3 +25,16 @@ patches:
     target:
       kind: Deployment
       name: "(helm-controller|source-controller|image-reflector-controller)"
+
+  - patch: |
+      # Enable drift detection and correction
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --feature-gates=DetectDrift=true,CorrectDrift=true
+      # Enable debug logging for diff output (optional)
+      - op: replace
+        path: /spec/template/spec/containers/0/args/2
+        value: --log-level=debug      
+    target:
+      kind: Deployment
+      name: helm-controller
