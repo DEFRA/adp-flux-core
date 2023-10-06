@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-azure-service-operator
+  namespace: config-cluster-flux
+spec:
+  chart:
+    spec:
+      chart: azure-service-operator
+      sourceRef:
+        kind: HelmRepository
+        name: repository-azure-service-operator
+        namespace: config-cluster-flux
+  install:
+    createNamespace: true
+  interval: 5m0s
+  releaseName: azure-service-operator
+  targetNamespace: azureserviceoperator-system
+  dependsOn:
+    - name: release-cert-manager
+  values:
+    azureSubscriptionID: ''
+    azureTenantID: ''
+    azureClientID: ''
+    crdPattern: 'resources.azure.com/*;containerservice.azure.com/*;keyvault.azure.com/*;managedidentity.azure.com/*;authorization.azure.com/*;servicebus.azure.com/*;dbforpostgresql.azure.com/*'
