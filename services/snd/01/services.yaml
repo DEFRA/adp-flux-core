@@ -23,7 +23,7 @@ spec:
       POSTGRES_SERVER: "sndadpdbsps1401"
       INFRA_RG: "sndadpinfrg1401"
       TEAM_MI_NAME: "sndadpinfmid1401"
-      CLUSTER_OIDC: "https://uksouth.oic.prod-aks.azure.com/6f504113-6b64-43f2-ade9-242e05780007/47f13011-3d77-4264-9029-6bf061a21092/"
+      CLUSTER_OIDC: "https://uksouth.oic.prod-aks.azure.com/6f504113-6b64-43f2-ade9-242e05780007/e1f44edd-ac8e-4e4d-928a-2d2a7a52d4b7/"
       TENANT_ID: "6f504113-6b64-43f2-ade9-242e05780007" 
       SUBSCRIPTION_ID: "55f3b8c6-6800-41c7-a40d-2adb5e4e1bd1"
       SUBSCRIPTION_NAME: "azd-adp-snd1"
