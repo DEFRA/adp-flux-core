@@ -16,8 +16,8 @@ spec:
   interval: 5m0s
   releaseName: azure-service-operator
   targetNamespace: azureserviceoperator-system
-  dependsOn:
-    - name: release-cert-manager
+  # dependsOn:
+  #   - name: release-cert-manager
   values:
     azureSubscriptionID: ''
     azureTenantID: ''
