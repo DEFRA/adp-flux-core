@@ -1,0 +1,33 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-app-config-service
+  namespace: config-cluster-flux
+spec:
+  chart:
+    spec:
+      chart: kubernetes-provider
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: repository-app-config-service
+  install:
+    createNamespace: true
+  interval: 5m0s
+  releaseName: azure-app-config-service
+  targetNamespace: app-config-service
+  # values:
+    # defaultBackend:
+    #   nodeSelector:
+    #     kubernetes.io/os: "linux"
+    # controller:
+    #   nginxplus: true
+    #   service:
+    #     create: true
+    #     type: LoadBalancer
+    #     annotations:
+    #       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    #       service.beta.kubernetes.io/azure-pls-create: "true"
+    #       service.beta.kubernetes.io/azure-pls-name: "aks-loadbalancer-pls"
+    #   nodeSelector:
+    #     kubernetes.io/os: "linux"
