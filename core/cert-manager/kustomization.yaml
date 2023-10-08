@@ -2,6 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: config-cluster-flux
 resources:
-  - https://github.com/jetstack/cert-manager/releases/download/v1.12.1/cert-manager.yaml
-  # - repository.yaml
-  # - release.yaml
+  - repository.yaml
+  - release.yaml
