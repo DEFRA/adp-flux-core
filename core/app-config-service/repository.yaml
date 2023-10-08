@@ -7,3 +7,14 @@ spec:
   type: "oci"
   interval: 24h
   url: oci://mcr.microsoft.com/azure-app-configuration/helmchart
+
+---
+
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: repository-reloader
+  namespace: config-cluster-flux
+spec:
+  interval: 24h
+  url: https://stakater.github.io/stakater-charts
