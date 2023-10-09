@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: features/kb/enable-private-acr
+    branch: main
   url: ssh://git@github.com/DEFRA/adp-flux-services/
   secretRef:
     name: adp-flux-services-secret
