@@ -15,7 +15,7 @@ spec:
   postBuild:
     substitute:
       ENVIRONMENT: "snd"
-      ACR_NAME: "sndcdoinfcr2401p"
+      ACR_NAME: "sndadpinfcr1401"
       NAMESPACE: "config-cluster-flux"
       SERVICEBUS_RG: "sndadpinfrg1401"
       SERVICEBUS_NS: "sndadpinfsb1401"
