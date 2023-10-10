@@ -4,5 +4,3 @@ namespace: config-cluster-flux
 resources:
   - config-repository.yaml
   - config-release.yaml
-  # - reloader-repository.yaml
-  # - reloader-release.yaml
