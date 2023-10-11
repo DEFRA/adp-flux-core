@@ -4,4 +4,3 @@ namespace: config-cluster-flux
 resources:
   - repository.yaml
   - release.yaml
-  - platform-team-namespace.yaml
