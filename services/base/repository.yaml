@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: gg/aso-initial
+    branch: jk/aso-initial
   url: https://github.com/DEFRA/adp-flux-services/
   # secretRef:
   #   name: adp-flux-services-secret
