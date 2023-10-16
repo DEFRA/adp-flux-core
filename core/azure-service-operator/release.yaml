@@ -22,4 +22,4 @@ spec:
     azureSubscriptionID: ''
     azureTenantID: ''
     azureClientID: ''
-    crdPattern: 'resources.azure.com/*;containerservice.azure.com/*;keyvault.azure.com/*;managedidentity.azure.com/*;authorization.azure.com/*;servicebus.azure.com/*;dbforpostgresql.azure.com/*'
+    crdPattern: 'resources.azure.com/*;managedidentity.azure.com/*;authorization.azure.com/*;servicebus.azure.com/*;dbforpostgresql.azure.com/*'

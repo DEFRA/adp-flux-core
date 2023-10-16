@@ -12,3 +12,4 @@ patches:
   - path: app-config-service-values.yaml
     target:
       kind: HelmRelease
+      name: release-app-config-service
