@@ -4,8 +4,8 @@ resources:
   - platform-team-namespace.yaml
   - platform-team-aso-secret.yaml
   - ../base
-# patches:
-#   - path: nginx-ingress-values.yaml
-#     target:
-#       kind: HelmRelease
-#       name: release-nginx-ingress
+patches:
+  - path: nginx-ingress-values.yaml
+    target:
+      kind: HelmRelease
+      name: release-nginx-ingress
