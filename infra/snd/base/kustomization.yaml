@@ -4,3 +4,4 @@ resources:
   - ../../../core/nginx-ingress
   - ../../../core/cert-manager
   - ../../../core/azure-service-operator
+  - ../../../core/app-config-service
