@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: azure-service-operator
-      version: "2.3.0"
+      version: "2.3.0-doesthisgetpickedup"
       sourceRef:
         kind: HelmRepository
         name: repository-azure-service-operator
