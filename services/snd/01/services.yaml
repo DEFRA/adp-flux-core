@@ -13,17 +13,6 @@ spec:
   prune: true
   path: ./services/environments/snd/01
   postBuild:
-    substitute:
-      ENVIRONMENT: ${ENVIRONMENT}
-      ACR_NAME: ${ACR_NAME}
-      NAMESPACE: "config-cluster-flux"
-      SERVICEBUS_RG: ${SERVICEBUS_RG}
-      SERVICEBUS_NS: ${SERVICEBUS_NS}
-      POSTGRES_SERVER_RG: ${POSTGRES_SERVER_RG}
-      POSTGRES_SERVER: ${POSTGRES_SERVER}
-      INFRA_RG: ${INFRA_RG}
-      TEAM_MI_NAME: ${TEAM_MI_NAME}
-      CLUSTER_OIDC: "https://uksouth.oic.prod-aks.azure.com/6f504113-6b64-43f2-ade9-242e05780007/e1f44edd-ac8e-4e4d-928a-2d2a7a52d4b7/"
-      TENANT_ID: ${TENANT_ID} 
-      SUBSCRIPTION_ID: ${SUBSCRIPTION_ID}
-      SUBSCRIPTION_NAME: ${SUBSCRIPTION_NAME}
+    substituteFrom:
+      - kind: ConfigMap
+        name: platform-vars
