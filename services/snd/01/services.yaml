@@ -27,4 +27,4 @@ spec:
       INFRA_RG: "aso-ggjk-aks-rg"
       TEAM_MI_NAME: "sndadpinfmid1401gg"
       POSTGRES_SERVER_RG: "sndadpdbsrg1401"
-      POSTGRES_SERVER: "sndadpdbsps1401"
+      POSTGRES_SERVER: "sndadpdbsps1402"
