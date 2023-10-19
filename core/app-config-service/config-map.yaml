@@ -1,0 +1,29 @@
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: platform-vars
+spec:
+  endpoint: https://$(ENVIRONMENT)adpinfac1401.azconfig.io
+  target:
+    configMapName: platform-vars
+  auth:
+    workloadIdentity:
+      managedIdentityClientId: $(ASO_CLIENT_ID)
+  keyValues:
+    selectors:
+      - keyFilter: '*'
+        labelFilter: Platform
+    keyVaults:
+      target:
+        secretName: platform-secrets
+      auth:
+        workloadIdentity:
+          managedIdentityClientId: $(ASO_CLIENT_ID)
+      refresh:
+        interval: 1m
+    refresh:
+      interval: 1m
+      monitoring:
+        keyValues:
+          - key: Sentinel
+            label: Platform
