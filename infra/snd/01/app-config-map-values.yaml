@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: app-config-map
+  namespace: config-cluster-flux
+spec:
+  auth:
+    workloadIdentity:
+      managedIdentityClientId: 'fc454fb3-9718-47cf-b9a5-6dc54a6bd558'
+  keyValues:
+    keyVaults:
+      auth:
+        workloadIdentity:
+          managedIdentityClientId: 'fc454fb3-9718-47cf-b9a5-6dc54a6bd558'

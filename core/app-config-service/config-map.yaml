@@ -2,13 +2,11 @@ apiVersion: azconfig.io/v1beta1
 kind: AzureAppConfigurationProvider
 metadata:
   name: platform-vars
+  namespace: config-cluster-flux
 spec:
-  endpoint: https://$(ENVIRONMENT)adpinfac1401.azconfig.io
+  endpoint: https://sndadpinfac1401.azconfig.io
   target:
     configMapName: platform-vars
-  auth:
-    workloadIdentity:
-      managedIdentityClientId: $(ASO_CLIENT_ID)
   keyValues:
     selectors:
       - keyFilter: '*'
@@ -16,9 +14,6 @@ spec:
     keyVaults:
       target:
         secretName: platform-secrets
-      auth:
-        workloadIdentity:
-          managedIdentityClientId: $(ASO_CLIENT_ID)
       refresh:
         interval: 1m
     refresh:
