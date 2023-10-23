@@ -7,4 +7,3 @@ resources:
 
 patches:
   - path: patch.yaml
-

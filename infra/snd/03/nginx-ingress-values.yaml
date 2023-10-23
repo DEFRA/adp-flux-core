@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress
+  namespace: config-cluster-flux
+spec:
+  chart:
+    spec:
+      version: 0.18.1
+  values:
+    controller:
+      image:
+        repository: "ssvadpinfcr3401.azurecr.io/image/nginx-plus-ingress"  #Explore best way to set the repository name.
+        tag: 3.2.1 
