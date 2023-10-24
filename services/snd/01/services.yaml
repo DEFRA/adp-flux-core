@@ -15,7 +15,7 @@ spec:
   postBuild:
     substitute:
       ENVIRONMENT: "snd"
-      ACR_NAME: "sndcdoinfcr2401p"
+      ACR_NAME: "sndadpinfcr1401p"
       NAMESPACE: "config-cluster-flux"
       CLUSTER: "01"
       CLUSTER_OIDC: "https://uksouth.oic.prod-aks.azure.com/6f504113-6b64-43f2-ade9-242e05780007/43949ff1-720e-44d1-b2a8-b0a35bf39dda/"
