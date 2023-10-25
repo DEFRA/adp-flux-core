@@ -4,12 +4,12 @@ metadata:
   name: platform-vars
   namespace: config-cluster-flux
 spec:
-  endpoint: https://$(APPCONFIG_NAME).azconfig.io
+  endpoint: https://${APPCONFIG_NAME}.azconfig.io
   target:
     configMapName: platform-vars
   auth:
     workloadIdentity:
-      managedIdentityClientId: $(APPCONFIG_MI_CLIENTID)
+      managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
   keyValues:
     selectors:
       - keyFilter: '*'
@@ -19,7 +19,7 @@ spec:
         secretName: platform-secrets
       auth:
         workloadIdentity:
-          managedIdentityClientId: $(APPCONFIG_MI_CLIENTID)
+          managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
       refresh:
         interval: 1m
     refresh:
