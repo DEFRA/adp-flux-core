@@ -11,7 +11,7 @@ spec:
     controller:
       service:
         annotations:  
-          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "SNDADPNETNS1401"
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "SNDADPNETSU1401"
       image:
         repository: "ssvadpinfcr3401.azurecr.io/image/nginx-plus-ingress"  #Explore best way to set the repository name.
         tag: 3.2.1 
