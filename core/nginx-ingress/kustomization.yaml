@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: config-cluster-flux
 resources:
   - repository.yaml
-  - release.yaml
+  # - release.yaml
