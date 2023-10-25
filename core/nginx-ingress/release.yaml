@@ -30,9 +30,9 @@ spec:
           service.beta.kubernetes.io/azure-pls-create: "true"
           service.beta.kubernetes.io/azure-pls-name: "aks-loadbalancer-pls"
       tolerations:
-        - key: CriticalAddonsOnly
-          effect: NoSchedule
-          operator: Equal
+        - key: "CriticalAddonsOnly"
+          operator: "Equal"
           value: "true"
+          effect: "NoSchedule"
       nodeSelector:
         kubernetes.io/os: "linux"
