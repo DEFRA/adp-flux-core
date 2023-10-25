@@ -4,4 +4,4 @@ namespace: config-cluster-flux
 resources:
   - config-repository.yaml
   - config-release.yaml
-  # - config-map.yaml
+  - config-map.yaml
