@@ -2,13 +2,16 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: nginx-ingress
-  namespace: config-cluster-flux
+  namespace: flux-config
 spec:
   chart:
     spec:
       version: 0.18.1
   values:
     controller:
+      service:
+        annotations:  
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "SNDADPNETSU1401" #TODO: Need to update once the platform values are available.
       image:
         repository: "ssvadpinfcr3401.azurecr.io/image/nginx-plus-ingress"  #Explore best way to set the repository name.
         tag: 3.2.1 
