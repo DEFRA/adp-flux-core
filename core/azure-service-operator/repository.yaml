@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: repository-azure-service-operator
-  namespace: flux-config-cluster
+  namespace: flux-config
 spec:
   interval: 24h
   url: https://raw.githubusercontent.com/Azure/azure-service-operator/main/v2/charts

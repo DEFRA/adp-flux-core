@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: repository-app-config-service
-  namespace: flux-config-cluster
+  namespace: flux-config
 spec:
   type: "oci"
   interval: 24h
