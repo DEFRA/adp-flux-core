@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - platform-team-namespace.yaml
   - ../../../core/nginx-ingress
   - ../../../core/cert-manager
   - ../../../core/azure-service-operator
