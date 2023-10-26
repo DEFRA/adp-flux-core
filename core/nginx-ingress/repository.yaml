@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: repository-nginx-ingress
-  namespace: config-cluster-flux
+  namespace: flux-config-cluster
 spec:
   interval: 24h
   url: https://helm.nginx.com/stable
