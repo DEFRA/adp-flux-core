@@ -11,7 +11,7 @@ spec:
     controller:
       service:
         annotations:  
-          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "SNDADPNETSU1401"
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "SNDADPNETSU1401" #TODO: Need to update once the platform values are available.
       image:
         repository: "ssvadpinfcr3401.azurecr.io/image/nginx-plus-ingress"  #Explore best way to set the repository name.
         tag: 3.2.1 
