@@ -18,7 +18,7 @@ spec:
       ACR_NAME: "sndadpinfcr1401p"
       NAMESPACE: "config-cluster-flux"
       CLUSTER: "01"
-      CLUSTER_OIDC: "https://uksouth.oic.prod-aks.azure.com/6f504113-6b64-43f2-ade9-242e05780007/43949ff1-720e-44d1-b2a8-b0a35bf39dda/"
+      CLUSTER_OIDC: "https://uksouth.oic.prod-aks.azure.com/6f504113-6b64-43f2-ade9-242e05780007/ac713d39-c6ca-4f66-9f8a-bb8df38db96a/"
       TENANT_ID: "6f504113-6b64-43f2-ade9-242e05780007" 
       SUBSCRIPTION_ID: "55f3b8c6-6800-41c7-a40d-2adb5e4e1bd1"
       SUBSCRIPTION_NAME: "azd-adp-snd1"
