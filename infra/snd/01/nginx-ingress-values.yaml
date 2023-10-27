@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.18.1
+      version: 1.0.1
   values:
     controller:
       service:
@@ -15,4 +15,4 @@ spec:
           service.beta.kubernetes.io/azure-load-balancer-internal-subnet: ${LOAD_BALANCER_SUBNET}
       image:
         repository: "${SHARED_CONTAINER_REGISTRY}.azurecr.io/image/nginx-plus-ingress"
-        tag: 3.2.1
+        tag: 3.3.1
