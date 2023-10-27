@@ -23,7 +23,7 @@ spec:
       SUBSCRIPTION_ID: "55f3b8c6-6800-41c7-a40d-2adb5e4e1bd1"
       SUBSCRIPTION_NAME: "azd-adp-snd1"
       SERVICEBUS_RG: "sndadpinfrg1401"
-      SERVICEBUS_NS: "sndadpinfsb1401"
+      SERVICEBUS_NS: "sndadpinfsb1401p"
       INFRA_RG: "aso-ggjk-aks-rg"
       TEAM_MI_NAME: "sndadpinfmid1401gg"
       POSTGRES_SERVER_RG: "sndadpdbsrg1401"
