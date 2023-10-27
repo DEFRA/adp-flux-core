@@ -6,12 +6,13 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.18.1
+      version: 1.0.1
   values:
     controller:
       service:
-        annotations:  
-          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "SNDADPNETSU1401" #TODO: Need to update once the platform values are available.
+        annotations:
+          service.beta.kubernetes.io/azure-pls-auto-approval: ${SUBSCRIPTION_ID}
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: ${LOAD_BALANCER_SUBNET}
       image:
-        repository: "ssvadpinfcr3401.azurecr.io/image/nginx-plus-ingress"  #Explore best way to set the repository name.
-        tag: 3.2.1 
+        repository: "${SHARED_CONTAINER_REGISTRY}.azurecr.io/image/nginx-plus-ingress"
+        tag: 3.3.1
