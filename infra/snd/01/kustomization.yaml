@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - platform-team-aso-secret.yaml
   - ../base
+  - priority-class.yaml
 patches:
   - path: nginx-ingress-values.yaml
     target:
