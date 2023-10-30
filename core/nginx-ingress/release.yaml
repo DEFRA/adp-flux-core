@@ -34,5 +34,14 @@ spec:
           operator: "Equal"
           value: "true"
           effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: Ingress
+                operator: In
+                values:
+                  - 'true'
       nodeSelector:
         kubernetes.io/os: "linux"
