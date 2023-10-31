@@ -11,9 +11,9 @@ spec:
     controller:
       service:
         annotations:
-          service.beta.kubernetes.io/azure-pls-visibility: ""
-          service.beta.kubernetes.io/azure-pls-auto-approval: ${SUBSCRIPTION_ID}
-          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: ${LOAD_BALANCER_SUBNET}
+          service.beta.kubernetes.io/azure-pls-visibility: "${SUBSCRIPTION_ID}"
+          service.beta.kubernetes.io/azure-pls-auto-approval: "${SUBSCRIPTION_ID}"
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "${LOAD_BALANCER_SUBNET}"
       image:
         repository: "${SHARED_CONTAINER_REGISTRY}.azurecr.io/image/nginx-plus-ingress"
         tag: 3.3.1
