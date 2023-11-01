@@ -2,7 +2,7 @@ apiVersion: azconfig.io/v1beta1
 kind: AzureAppConfigurationProvider
 metadata:
   name: platform-vars
-  namespace: config-cluster-flux
+  namespace: flux-config
 spec:
   endpoint: https://${APPCONFIG_NAME}.azconfig.io
   target:
