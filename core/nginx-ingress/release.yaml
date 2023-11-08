@@ -51,4 +51,3 @@ spec:
       podDisruptionBudget:
         enabled: true
         annotations: {}
-        minAvailable: 1
