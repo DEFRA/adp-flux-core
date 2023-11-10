@@ -45,3 +45,9 @@ spec:
                   - 'true'
       nodeSelector:
         kubernetes.io/os: "linux"
+      config:
+        entries:
+          http2: "True"
+      podDisruptionBudget:
+        enabled: true
+        annotations: {}
