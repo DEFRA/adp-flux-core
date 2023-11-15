@@ -11,7 +11,7 @@ spec:
     controller:
       service:
         annotations:
-          service.beta.kubernetes.io/azure-pls-visibility: "*"
+          service.beta.kubernetes.io/azure-pls-visibility: "${SUBSCRIPTION_ID}"
           service.beta.kubernetes.io/azure-pls-auto-approval: "${SUBSCRIPTION_ID}"
           service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "${LOAD_BALANCER_SUBNET}"
       image:
