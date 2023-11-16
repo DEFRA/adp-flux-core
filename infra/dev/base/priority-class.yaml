@@ -5,4 +5,4 @@ metadata:
 value: 10000
 preemptionPolicy: Never
 globalDefault: false
-description: "Defualt priority class for any deployment that doesn't specify a priorityClassName"
+description: "Default priority class for any deployment that doesn't specify a priorityClassName"
