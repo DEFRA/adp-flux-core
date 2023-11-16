@@ -4,10 +4,4 @@ metadata:
   name: services-base
 resources: 
   - ../../base
-
-patches:
-  - path: patch.yaml
-    target:
-      kind: Kustomization
-      name: services
-      namespace: flux-config
+  - services.yaml
