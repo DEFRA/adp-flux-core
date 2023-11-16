@@ -4,6 +4,4 @@ metadata:
   name: services-base
 resources: 
   - ../../base
-
-patches:
-  - path: patch.yaml
+  - services.yaml
