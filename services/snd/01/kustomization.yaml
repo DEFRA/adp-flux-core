@@ -6,4 +6,4 @@ resources:
   - ../../base
 
 patches:
-  - path: snd01-services-patch.yaml
+  - path: patch.yaml
