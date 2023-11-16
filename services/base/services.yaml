@@ -11,7 +11,7 @@ spec:
   interval: 5m
   timeout: 3m
   prune: true
-  path: ./services/environments/snd/01
+  path: ./services/environments/<env>/<cluster-no> # updated using an environment specific patch
   postBuild:
     substituteFrom:
       - kind: ConfigMap
