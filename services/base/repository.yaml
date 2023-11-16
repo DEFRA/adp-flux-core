@@ -9,4 +9,4 @@ spec:
     branch: main
   url: ssh://git@github.com/DEFRA/adp-flux-services/
   secretRef:
-    name: platform-secrets
+    name: adp-platform-secrets
