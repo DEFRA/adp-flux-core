@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: main
+    branch: pp/e2e
   url: ssh://git@github.com/DEFRA/adp-flux-services/
   secretRef:
     name: adp-platform-secrets
