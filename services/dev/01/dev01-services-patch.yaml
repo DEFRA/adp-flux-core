@@ -4,4 +4,4 @@ metadata:
   name: services-dev-01
   namespace: flux-config
 spec:
-  path: ./services/environments/snd/01
+  path: ./services/environments/dev/01
