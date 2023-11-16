@@ -7,3 +7,7 @@ resources:
 
 patches:
   - path: patch.yaml
+    target:
+      kind: Kustomization
+      name: services
+      namespace: flux-config
