@@ -1,22 +1,22 @@
 apiVersion: azconfig.io/v1beta1
 kind: AzureAppConfigurationProvider
 metadata:
-  name: platform-vars
+  name: adp-platform-vars
   namespace: flux-config
 spec:
   endpoint: https://${APPCONFIG_NAME}.azconfig.io
   target:
-    configMapName: platform-vars
+    configMapName: adp-platform-vars
   auth:
     workloadIdentity:
       managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
   keyValues:
     selectors:
       - keyFilter: '*'
-        labelFilter: Platform
+        labelFilter: adp-platform
     keyVaults:
       target:
-        secretName: platform-secrets
+        secretName: adp-platform-secrets
       auth:
         workloadIdentity:
           managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
@@ -27,4 +27,4 @@ spec:
       monitoring:
         keyValues:
           - key: Sentinel
-            label: Platform
+            label: adp-platform
