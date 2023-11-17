@@ -6,4 +6,4 @@ metadata:
 spec:
   chart:
     spec:
-      version: 1.0.0-preview4
+      version: 1.0.0

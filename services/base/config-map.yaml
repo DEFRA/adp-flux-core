@@ -1,4 +1,4 @@
-apiVersion: azconfig.io/v1beta1
+apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
 metadata:
   name: adp-platform-vars
@@ -10,21 +10,23 @@ spec:
   auth:
     workloadIdentity:
       managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
-  keyValues:
+  configuration:
     selectors:
       - keyFilter: '*'
         labelFilter: adp-platform
-    keyVaults:
-      target:
-        secretName: adp-platform-secrets
-      auth:
-        workloadIdentity:
-          managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
-      refresh:
-        interval: 1m
     refresh:
       interval: 1m
+      enabled: true
       monitoring:
         keyValues:
           - key: Sentinel
             label: adp-platform
+  secret:
+    target:
+      secretName: adp-platform-secrets
+    auth:
+      workloadIdentity:
+        managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
+    refresh:
+      interval: 5m
+      enabled: true
