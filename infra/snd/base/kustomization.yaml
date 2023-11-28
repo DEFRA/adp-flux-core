@@ -6,5 +6,6 @@ resources:
   - ../../../core/cert-manager
   - ../../../core/azure-service-operator
   - ../../../core/app-config-service
+    - ../../../core/testkube/core
   - priority-class.yaml
 

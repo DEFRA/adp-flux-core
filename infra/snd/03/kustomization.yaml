@@ -11,3 +11,7 @@ patches:
     target:
       kind: HelmRelease
       name: release-app-config-service
+  - path: testkube-values.yaml
+    target:
+      kind: HelmRelease
+      name: release-testkube      

@@ -1,0 +1,68 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-testkube
+  namespace: flux-config
+spec:
+  interval: 5m0s
+  targetNamespace: testkube
+  releaseName: testkube
+  chart:
+    spec:
+      chart: testkube
+      sourceRef:
+        kind: HelmRepository
+        name: repository-testkube
+        namespace: flux-config
+      version: "1.15.25"
+  values:
+    testkube-api:
+      uiIngress:
+        enabled: true
+        className: "nginx"
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            proxy_set_header l5d-dst-override testkube-api.testkube.svc.cluster.local:8088;
+            grpc_set_header l5d-dst-override testkube-api.testkube.svc.cluster.local:8088;
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/rewrite-target: /$1
+          nginx.ingress.kubernetes.io/enable-cors: "true"
+          nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
+
+          # for websockets
+          nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+          nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+
+        path: /results
+        hosts:
+          - testkube-api.snd3.adp.defra.gov.uk
+        tlsenabled: "true"
+        tls:
+          - hosts:
+              - testkube-api.snd3.adp.defra.gov.uk
+
+    testkube-dashboard:
+      enabled: "true"
+      ingress:
+        className: "nginx"
+        enabled: "true" 
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            proxy_set_header l5d-dst-override testkube-dashboard.testkube.svc.cluster.local:8080;
+            grpc_set_header l5d-dst-override testkube-dashboard.testkube.svc.cluster.local:8080;          
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/enable-cors: "true"
+          nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
+        path: /
+        hosts:
+          - dashboard.snd3.adp.defra.gov.uk
+        tlsenabled: "true"
+        tls:
+          - hosts:
+              - dashboard.snd3.adp.defra.gov.uk
+        #     secretName: testkube-cert-secret
+      apiServerEndpoint: "testkube-api.snd3.adp.defra.gov.uk/results"
