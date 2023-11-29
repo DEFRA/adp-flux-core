@@ -32,15 +32,9 @@ spec:
 
       minio:
         image:
-          registry: ${SHARED_CONTAINER_REGISTRY}.azurecr.io/
+          registry: ${SHARED_CONTAINER_REGISTRY}.azurecr.io
           repository: image/minio
           tag: RELEASE.2023-09-16T01-01-47Z
-
-      mongodb:
-        image:
-          registry: ${SHARED_CONTAINER_REGISTRY}.azurecr.io/
-          repository: image/bitnami-compat-mongodb
-          tag: 6.0.5-debian-11-r64
 
     testkube-dashboard:
       enabled: "true"
@@ -56,4 +50,10 @@ spec:
         hosts:
           - test-dashboard.snd3.adp.defra.gov.uk
       apiServerEndpoint: "test-dashboard.snd3.adp.defra.gov.uk/results"
+
+    mongodb:
+      image:
+        registry: ${SHARED_CONTAINER_REGISTRY}.azurecr.io
+        repository: image/bitnami-compat-mongodb
+        tag: 6.0.5-debian-11-r64
 
