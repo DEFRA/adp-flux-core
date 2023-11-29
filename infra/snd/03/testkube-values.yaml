@@ -51,9 +51,9 @@ spec:
       repository: image/bitnami-compat-mongodb
       tag: 6.0.5-debian-11-r64
 
-  minio:
-    image:
-      registry: ${SHARED_CONTAINER_REGISTRY}.azurecr.io/
-      repository: image/minio
-      tag: RELEASE.2023-09-16T01-01-47Z
-      
+  service:
+    minio:
+      image:
+        registry: ${SHARED_CONTAINER_REGISTRY}.azurecr.io/
+        repository: image/minio
+        tag: RELEASE.2023-09-16T01-01-47Z
