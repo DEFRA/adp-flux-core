@@ -28,7 +28,7 @@ spec:
 
         path: /results
         hosts:
-          - testkube-api.${ENVIRONMENT}3.adp.defra.gov.uk
+          - testkube-api.snd3.adp.defra.gov.uk
 
     testkube-dashboard:
       enabled: "true"
@@ -43,4 +43,11 @@ spec:
         path: /
         hosts:
           - dashboard.snd3.adp.defra.gov.uk
-      apiServerEndpoint: "testkube-api.${ENVIRONMENT}3.adp.defra.gov.uk/results"
+      apiServerEndpoint: "testkube-api.snd3.adp.defra.gov.uk/results"
+    
+    mongodb:
+  image:
+    registry: ${SHARED_CONTAINER_REGISTRY}.azurecr.io/
+    repository: image/bitnami-compat-mongodb
+    tag: 6.0.5-debian-11-r64
+
