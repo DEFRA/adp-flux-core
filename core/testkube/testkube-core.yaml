@@ -9,6 +9,6 @@ spec:
     kind: GitRepository
     name: flux-config
     namespace: flux-config
-  path: "./infra/testkube/core/"
+  path: "./infrastructure/testkube/core/"
   prune: true
   timeout: 5m

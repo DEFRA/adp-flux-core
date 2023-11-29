@@ -12,7 +12,7 @@ spec:
       chart: testkube
       sourceRef:
         kind: HelmRepository
-        name: repository-testkube
+        name: testkube
         namespace: flux-config
       version: "1.15.25"
   values:
