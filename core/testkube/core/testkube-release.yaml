@@ -25,11 +25,11 @@ spec:
           nginx.ingress.kubernetes.io/configuration-snippet: |
             proxy_set_header l5d-dst-override testkube-api.testkube.svc.cluster.local:8088;
             grpc_set_header l5d-dst-override testkube-api.testkube.svc.cluster.local:8088;
-          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-          nginx.ingress.kubernetes.io/ssl-redirect: "true"
-          nginx.ingress.kubernetes.io/rewrite-target: /$1
-          nginx.ingress.kubernetes.io/enable-cors: "true"
-          nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
+          # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+          # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          # nginx.ingress.kubernetes.io/rewrite-target: /$1
+          # nginx.ingress.kubernetes.io/enable-cors: "true"
+          # nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
 
           # for websockets
           nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
@@ -53,10 +53,10 @@ spec:
           nginx.ingress.kubernetes.io/configuration-snippet: |
             proxy_set_header l5d-dst-override testkube-dashboard.testkube.svc.cluster.local:8080;
             grpc_set_header l5d-dst-override testkube-dashboard.testkube.svc.cluster.local:8080;          
-          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-          nginx.ingress.kubernetes.io/ssl-redirect: "true"
-          nginx.ingress.kubernetes.io/enable-cors: "true"
-          nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
+          # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+          # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          # nginx.ingress.kubernetes.io/enable-cors: "true"
+          # nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
         path: /
         hosts:
           - dashboard.snd3.adp.defra.gov.uk
