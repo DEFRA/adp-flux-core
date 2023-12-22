@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: feature/debug
+    branch: jk/db-migration-integration
   url: ssh://git@github.com/DEFRA/adp-flux-services/
   secretRef:
     name: adp-platform-secrets
