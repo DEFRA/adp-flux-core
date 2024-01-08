@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: aa/db-migration-order-automation2
+    branch: aa/db-migration-order-automation3
   url: ssh://git@github.com/DEFRA/adp-flux-services/
   secretRef:
     name: adp-platform-secrets
