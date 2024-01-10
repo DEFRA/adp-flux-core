@@ -19,3 +19,4 @@ spec:
         tag: 3.3.1
       podDisruptionBudget:
         minAvailable: 2
+        disruptionsAllowed: 1
