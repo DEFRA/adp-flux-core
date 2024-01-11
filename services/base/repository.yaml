@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   ref:
-    branch: aa/move-image-policy
+    branch: aa/move-image-policy-auto
   url: ssh://git@github.com/DEFRA/adp-flux-services/
   secretRef:
     name: adp-platform-secrets
