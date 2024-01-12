@@ -17,6 +17,6 @@ spec:
       image:
         repository: "${SHARED_CONTAINER_REGISTRY}.azurecr.io/image/nginx-plus-ingress"
         tag: 3.3.1
+      replicaCount: 3
       podDisruptionBudget:
         minAvailable: 2
-        disruptionsAllowed: 1
