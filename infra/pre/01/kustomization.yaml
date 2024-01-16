@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../base
+patches:
+  - path: nginx-ingress-values.yaml
+    target:
+      kind: HelmRelease
+      name: release-nginx-ingress
+  - path: app-config-service-values.yaml
+    target:
+      kind: HelmRelease
+      name: release-app-config-service
