@@ -1,0 +1,8 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: default
+value: 10000
+preemptionPolicy: Never
+globalDefault: false
+description: "Default priority class for any deployment that doesn't specify a priorityClassName"
