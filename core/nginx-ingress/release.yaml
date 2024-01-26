@@ -4,6 +4,8 @@ metadata:
   name: release-nginx-ingress
   namespace: flux-config
 spec:
+  dependsOn:
+    - name: release-istiod
   chart:
     spec:
       chart: nginx-ingress
