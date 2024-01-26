@@ -9,6 +9,10 @@ spec:
       version: 1.0.1
   values:
     controller:
+      annotations:
+        traffic.sidecar.istio.io/includeInboundPorts: ""
+        traffic.sidecar.istio.io/excludeInboundPorts: "80,443"
+        sidecar.istio.io/inject: 'true'
       service:
         annotations:
           service.beta.kubernetes.io/azure-pls-visibility: "${SUBSCRIPTION_ID}"
