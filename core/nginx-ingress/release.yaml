@@ -51,3 +51,4 @@ spec:
       podDisruptionBudget:
         enabled: true
         annotations: {}
+      enableSnippets: true
