@@ -64,6 +64,7 @@ spec:
   - action: Allow
 
 ---
+---
 # Allow nginx-ingress
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
@@ -75,5 +76,11 @@ spec:
     destination: 
       namespaceSelector: name == 'nginx-ingress'
     source: {}
+  egress:
+  - action: Allow
+    destination: 
+      namespaceSelector: name == 'nginx-ingress'
+    source: {}
   types:
   - Ingress
+  - Egress
