@@ -4,3 +4,4 @@ namespace: flux-config
 resources:
   - api-server.yaml
   - global-network-policy.yaml
+  - network-policy.yaml
