@@ -1,51 +1,53 @@
-# Deny All
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: deny-all
+  name: allow-nginx-ingress-team-namespaces
 spec:
-  order: 1000
+  order: 940
   types:
   - Ingress
-  - Egress
----
-
-# Allow coredns
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-coredns
-spec:
-  order: 990
-  selector: k8s-app == "kube-dns"
-  types:
-  - Ingress
-  - Egress
-  
-  egress:
-  - action: Allow
   ingress:
   - action: Allow
+    destination:
+      namespaceSelector: type == "team-namespace"  
+    source: 
+      namespaceSelector: name == "nginx-ingress"
 ---
 
-# Allow dns-egress
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-dns-egress
+  name: allow-team-namespaces-egress
 spec:
-  order: 980
+  order: 950
   types:
   - Egress
   egress:
   - action: Allow
-    protocol: UDP
+    protocol: TCP
     destination:
       nets:
         - 0.0.0.0/0
-      ports:
-        - 53
----
+    source: 
+      namespaceSelector: type == "team-namespace"
+--- 
+
+ apiVersion: projectcalico.org/v3
+ kind: GlobalNetworkPolicy
+ metadata:
+   name: allow-calico-apiserver-egress-tcp
+ spec:
+   order: 960
+   namespaceSelector: kubernetes.io/metadata.name == "calico-apiserver"
+   types:
+   - Egress
+   egress:
+   - action: Allow
+     protocol: TCP
+     destination:
+       nets:
+        - 0.0.0.0/0
+---  
 
  # Allow kube-system
  apiVersion: projectcalico.org/v3
@@ -69,68 +71,50 @@ spec:
    - Egress
 ---
 
- apiVersion: projectcalico.org/v3
- kind: GlobalNetworkPolicy
- metadata:
-   name: allow-calico-apiserver-egress-tcp
- spec:
-   order: 960
-   namespaceSelector: kubernetes.io/metadata.name == "calico-apiserver"
-   types:
-   - Egress
-   egress:
-   - action: Allow
-     protocol: TCP
-     destination:
-       nets:
-        - 0.0.0.0/0
----       
-
+# Allow dns-egress
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-team-namespaces-egress
+  name: allow-dns-egress
 spec:
-  order: 950
+  order: 980
   types:
   - Egress
   egress:
   - action: Allow
-    protocol: TCP
+    protocol: UDP
     destination:
       nets:
         - 0.0.0.0/0
-    source: 
-      namespaceSelector: type == "team-namespace"
---- 
+      ports:
+        - 53
+---
 
+# Allow coredns
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-all-tcp-egress-to-kube-system
+  name: allow-coredns
 spec:
-  order: 940
-  types:
-  - Egress
-  egress:
-  - action: Allow
-    destination: 
-      namespaceSelector: name == "kube-system"
-    source: {}
----  
-
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-nginx-ingress-team-namespaces
-spec:
-  order: 930
+  order: 990
+  selector: k8s-app == "kube-dns"
   types:
   - Ingress
+  - Egress
+  
+  egress:
+  - action: Allow
   ingress:
   - action: Allow
-    destination:
-      namespaceSelector: type == "team-namespace"  
-    source: 
-      namespaceSelector: name == "nginx-ingress"
+---
 
+# Deny All
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: deny-all
+spec:
+  order: 1000
+  types:
+  - Ingress
+  - Egress
