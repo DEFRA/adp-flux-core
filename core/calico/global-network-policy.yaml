@@ -13,19 +13,19 @@ spec:
     source: 
       namespaceSelector: name == "nginx-ingress"
 ---
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-all-tcp-egress-to-kube-system
-spec:
-  order: 940
-  types:
-  - Egress
-  egress:
-  - action: Allow
-    protocol: TCP
-    destination: {}
-    source: {}
+#apiVersion: projectcalico.org/v3
+#kind: GlobalNetworkPolicy
+#metadata:
+#  name: allow-all-tcp-egress-to-kube-system
+#spec:
+#  order: 940
+#  types:
+#  - Egress
+#  egress:
+#  - action: Allow
+#    protocol: TCP
+#    destination: {}
+#    source: {}
 ---    
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
