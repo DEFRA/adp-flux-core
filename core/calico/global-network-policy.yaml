@@ -75,9 +75,6 @@ spec:
   - action: Allow
     protocol: TCP
     destination: 
-     namespaceSelector: kubernetes.io/metadata.name == "kube-system"
-     ports:
-        - 80
-        - 443
+      namespaceSelector: kubernetes.io/metadata.name == "kube-system"
     source: {}
 ---
