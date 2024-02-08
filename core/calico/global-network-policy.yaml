@@ -3,7 +3,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-nginx-ingress-team-namespaces
 spec:
-  order: 940
+  order: 930
   types:
   - Ingress
   ingress:
@@ -13,6 +13,22 @@ spec:
     source: 
       namespaceSelector: name == "nginx-ingress"
 ---
+
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-all-tcp-ingress-kube-system
+spec:
+  order: 940
+  types:
+  - Ingress
+  ingress:
+  - action: Allow
+    protocol: TCP
+    destination: 
+      namespaceSelector: name == "kube-system"
+    source: {}
+---  
 
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
