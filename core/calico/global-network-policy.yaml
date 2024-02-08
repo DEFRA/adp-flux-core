@@ -1,75 +1,53 @@
-#apiVersion: projectcalico.org/v3
-#kind: GlobalNetworkPolicy
-#metadata:
-#  name: allow-nginx-ingress-team-namespaces
-#spec:
-#  order: 930
-#  types:
-#  - Ingress
-#  ingress:
-#  - action: Allow
-#    destination:
-#      namespaceSelector: type == "team-namespace"  
-#    source: 
-#      namespaceSelector: name == "nginx-ingress"
-#---
-#apiVersion: projectcalico.org/v3
-#kind: GlobalNetworkPolicy
-#metadata:
-#  name: allow-all-tcp-egress-to-kube-system
-#spec:
-#  order: 940
-#  types:
-#  - Egress
-#  egress:
-#  - action: Allow
-#    protocol: TCP
-#    destination: {}
-#    source: {}
-#---    
-#apiVersion: projectcalico.org/v3
-#kind: GlobalNetworkPolicy
-#metadata:
-#  name: allow-team-namespaces-egress
-#spec:
-#  order: 950
-#  types:
-#  - Egress
-#  egress:
-#  - action: Allow
-#    protocol: TCP
-#    destination:
-#      nets:
-#        - 0.0.0.0/0
-#    source: 
-#      namespaceSelector: type == "team-namespace"
-#---
-# apiVersion: projectcalico.org/v3
-# kind: GlobalNetworkPolicy
-# metadata:
-#   name: allow-calico-apiserver-egress-tcp
-# spec:
-#   order: 960
-#   namespaceSelector: kubernetes.io/metadata.name == "calico-apiserver"
-#   types:
-#   - Egress
-#   egress:
-#   - action: Allow
-#     protocol: TCP
-#     destination:
-#       nets:
-#        - 0.0.0.0/0
-#---        
+# Deny All
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: deny-all
+spec:
+  types:
+  - Ingress
+  - Egress
+---
+# Allow coredns
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-coredns
+spec:
+  selector: k8s-app == "kube-dns"
+  types:
+  - Ingress
+  - Egress
+  
+  egress:
+  - action: Allow
+  ingress:
+  - action: Allow
+---
+# Allow dns-egress
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-dns-egress
+spec:
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: UDP
+    destination:
+      nets:
+        - 0.0.0.0/0
+      ports:
+        - 53
 
-#---
-
+---
  # Allow kube-system
  apiVersion: projectcalico.org/v3
  kind: GlobalNetworkPolicy
  metadata:
    name: allow-kube-system
  spec:
-   order: 970
    ingress:
    - action: Allow
      destination: 
@@ -84,49 +62,3 @@
    - Ingress
    - Egress
 ---
-# Allow dns-egress
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-dns-egress
-spec:
-  order: 980
-  types:
-  - Egress
-  egress:
-  - action: Allow
-    protocol: UDP
-    destination:
-      nets:
-        - 0.0.0.0/0
-      ports:
-        - 53
-
----
-# Allow coredns
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-coredns
-spec:
-  order: 990
-  selector: k8s-app == "kube-dns"
-  types:
-  - Ingress
-  - Egress
-  
-  egress:
-  - action: Allow
-  ingress:
-  - action: Allow
----
-# Deny All
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: deny-all
-spec:
-  order: 1000
-  types:
-  - Ingress
-  - Egress
