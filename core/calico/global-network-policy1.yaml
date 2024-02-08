@@ -67,7 +67,6 @@ spec:
     source: 
       namespaceSelector: type == "team-namespace"
 ---
----
  apiVersion: projectcalico.org/v3
  kind: GlobalNetworkPolicy
  metadata:

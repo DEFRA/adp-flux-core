@@ -67,7 +67,7 @@ spec:
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-azure-wi-webhook-egress
+  name: allow-all-tcp-egress-to-kube-system
 spec:
   types:
   - Egress
