@@ -114,8 +114,7 @@ spec:
   egress:
   - action: Allow
     protocol: TCP
-    destination: 
-      namespaceSelector: kubernetes.io/metadata.name == "kube-system"
+    destination: {}
     source: {}
 ---
 
