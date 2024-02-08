@@ -62,3 +62,22 @@ spec:
   - action: Allow
   ingress:
   - action: Allow
+---
+
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-azure-wi-webhook-egress
+spec:
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: TCP
+    destination: 
+     namespaceSelector: kubernetes.io/metadata.name == "kube-system"
+     ports:
+        - 80
+        - 443
+    source: {}
+---

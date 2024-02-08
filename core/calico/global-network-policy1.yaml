@@ -13,23 +13,7 @@ spec:
     destination: {}
     source: {}
 ---
-apiVersion: projectcalico.org/v3
-kind: NetworkPolicy
-metadata:
-  name: allow-app-config-service-egress
-  namespace: app-config-service
-spec:
-  types:
-  - Egress
-  egress:
-  - action: Allow
-    protocol: TCP
-    destination: 
-     ports:
-        - 80
-        - 443
-    source: {}
----
+
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
