@@ -16,9 +16,23 @@ spec:
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-team-namespaces-egress
+  name: allow-all-tcp-egress-to-kube-system
 spec:
   order: 940
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: TCP
+    destination: {}
+    source: {}
+---    
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-team-namespaces-egress
+spec:
+  order: 950
   types:
   - Egress
   egress:
@@ -35,7 +49,7 @@ spec:
  metadata:
    name: allow-calico-apiserver-egress-tcp
  spec:
-   order: 950
+   order: 960
    namespaceSelector: kubernetes.io/metadata.name == "calico-apiserver"
    types:
    - Egress
@@ -52,7 +66,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-coredns
 spec:
-  order: 960
+  order: 970
   types:
   - Ingress
   - Egress
@@ -68,7 +82,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-dns-egress
 spec:
-  order: 970
+  order: 980
   types:
   - Egress
   egress:
@@ -87,7 +101,7 @@ spec:
  metadata:
    name: allow-kube-system
  spec:
-   order: 980
+   order: 990
    ingress:
    - action: Allow
      destination: 
@@ -102,20 +116,6 @@ spec:
    - Ingress
    - Egress
 
----
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-all-tcp-egress-to-kube-system
-spec:
-  order: 990
-  types:
-  - Egress
-  egress:
-  - action: Allow
-    protocol: TCP
-    destination: {}
-    source: {}
 ---
 
 # Deny All
