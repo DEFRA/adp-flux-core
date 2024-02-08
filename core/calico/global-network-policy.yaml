@@ -57,7 +57,7 @@ spec:
   types:
   - Ingress
   - Egress
-  selector: k8s-app == 'kube-dns'
+  selector: k8s-app == "kube-dns"
   egress:
   - action: Allow
   ingress:
