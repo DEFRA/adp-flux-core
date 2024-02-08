@@ -1,38 +1,3 @@
-# Allow flux-config
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-flux-config
-spec:
-  ingress:
-  - action: Allow
-    destination: 
-      namespaceSelector: name == 'flux-config'
-    source: {}
-  egress:
-  - action: Allow
-    destination: {}
-    source: 
-      namespaceSelector: name == 'flux-config'
-  types:
-  - Ingress
-  - Egress
-
---- 
-
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-nginx-ingress-to-all
-spec:
-  types:
-  - Egress
-  egress:
-  - action: Allow
-    source: 
-      namespaceSelector: name == 'nginx-ingress'
----
-
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
@@ -49,18 +14,3 @@ spec:
       ports:
       - 443
     source: {}
----
-apiVersion: projectcalico.org/v3
-kind: NetworkPolicy
-metadata:
-  name: allow-ingress-to-nginx
-  namespace: nginx-ingress
-spec:
-  #selector: app.kubernetes.io/name == 'nginx-ingress'
-  types:
-  - Ingress
-  - Egress  
-  ingress:
-  - action: Allow
-  egress:
-  - action: Allow
