@@ -4,7 +4,7 @@ metadata:
   name: allow-cert-manager-webhook-ingress
   namespace: cert-manager
 spec:
-  selector: app.kubernetes.io/name == "webhook"
+  selector: app == "webhook"
   types:
   - Ingress
   ingress:

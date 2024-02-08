@@ -114,8 +114,8 @@ spec:
   - Egress
   egress:
   - action: Allow
-    protocol: TCP
-    destination: {}
+    destination: 
+      namespaceSelector: name == "kube-system"
     source: {}
 ---  
 
