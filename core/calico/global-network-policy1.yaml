@@ -12,7 +12,23 @@ spec:
     protocol: TCP
     destination: {}
     source: {}
-
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-app-config-service-egress
+  namespace: app-config-service
+spec:
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: TCP
+    destination: 
+     ports:
+        - 80
+        - 443
+    source: {}
 ---
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
@@ -25,21 +41,60 @@ spec:
   - Egress
   ingress:
   - action: Allow
+    protocol: TCP
+    destination: 
+      ports:
+        - 80
+        - 443
+    source: 
+      nets:
+        - 10.178.108.0/27
   egress:
   - action: Allow
   
 ---
-
 apiVersion: projectcalico.org/v3
-kind: NetworkPolicy
+kind: GlobalNetworkPolicy
 metadata:
-  name: allow-ffc-demo-all
-  namespace: ffc-demo
+  name: allow-nginx-ingress-team-namespaces
 spec:
   types:
   - Ingress
-  - Egress
   ingress:
   - action: Allow
+    destination:
+      namespaceSelector: type == "team-namespace"  
+    source: 
+      namespaceSelector: name == "nginx-ingress"
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-team-namespaces-egress
+spec:
+  types:
+  - Egress
   egress:
   - action: Allow
+    protocol: TCP
+    destination:
+      nets:
+        - 0.0.0.0/0
+    source: 
+      namespaceSelector: type == "team-namespace"
+---
+---
+ apiVersion: projectcalico.org/v3
+ kind: GlobalNetworkPolicy
+ metadata:
+   name: allow-calico-apiserver-egress-tcp
+ spec:
+   namespaceSelector: kubernetes.io/metadata.name == "calico-apiserver"
+   types:
+   - Egress
+   egress:
+   - action: Allow
+     protocol: TCP
+     destination:
+       nets:
+        - 0.0.0.0/0
