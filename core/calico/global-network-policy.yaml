@@ -49,6 +49,28 @@ spec:
         - 0.0.0.0/0
 ---  
 
+ # Allow kube-system
+ apiVersion: projectcalico.org/v3
+ kind: GlobalNetworkPolicy
+ metadata:
+   name: allow-kube-system
+ spec:
+   order: 970
+   ingress:
+   - action: Allow
+     destination: 
+       namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+     source: {}
+   egress:
+   - action: Allow
+     destination: {}
+     source: 
+       namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+   types:
+   - Ingress
+   - Egress
+---
+
 # Allow dns-egress
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
