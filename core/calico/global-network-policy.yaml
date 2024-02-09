@@ -149,3 +149,19 @@ spec:
   types:
   - Ingress
   - Egress
+---
+
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-ffc-demo-internal
+spec:
+  namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+  ingress:
+    - action: Allow
+      source:
+        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+  egress:
+    - action: Allow
+      destination:
+        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
