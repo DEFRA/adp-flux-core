@@ -3,7 +3,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-nginx-ingress-team-namespaces
 spec:
-  order: 930
+  order: 950
   types:
   - Ingress
   ingress:
@@ -19,7 +19,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-team-namespaces-egress-internet
 spec:
-  order: 950
+  order: 960
   types:
   - Egress
   egress:
@@ -38,7 +38,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-team-namespaces-egress-kube-system
 spec:
-  order: 950
+  order: 967
   egress:
   - action: Allow
     destination: 
@@ -55,7 +55,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-kube-system
 spec:
-  order: 970
+  order: 968
   ingress:
   - action: Allow
     destination: 
@@ -75,7 +75,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-kube-system-internal
 spec:
-  order: 970
+  order: 969
   namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
   ingress:
     - action: Allow
@@ -92,7 +92,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-system-namespaces-egress
 spec:
-  order: 950
+  order: 970
   types:
   - Egress
   egress:
