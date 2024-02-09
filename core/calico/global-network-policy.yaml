@@ -17,7 +17,7 @@ spec:
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-team-namespaces-egress
+  name: allow-team-namespaces-egress-internet
 spec:
   order: 950
   types:
@@ -31,6 +31,23 @@ spec:
     source: 
       namespaceSelector: type == "team-namespace"
 --- 
+
+# Allow kube-system
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-team-namespaces-egress-kube-system
+spec:
+  order: 950
+  egress:
+  - action: Allow
+    destination: 
+      namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+    source: 
+      namespaceSelector: type == "team-namespace"
+  types:
+  - Egress
+---  
 
  apiVersion: projectcalico.org/v3
  kind: GlobalNetworkPolicy
@@ -48,6 +65,8 @@ spec:
        nets:
         - 0.0.0.0/0
 ---  
+
+
 
 # Allow kube-system
 apiVersion: projectcalico.org/v3
