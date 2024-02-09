@@ -90,17 +90,16 @@ spec:
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-app-config-service-internal
+  name: allow-app-config-service
 spec:
   order: 970
-  namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
   ingress:
     - action: Allow
-      source:
+      destination:
         namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
   egress:
     - action: Allow
-      destination:
+      source:
         namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
 ---
 
