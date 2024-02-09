@@ -117,7 +117,7 @@ spec:
   egress:
   - action: Allow  
     source: 
-      namespaceSelector: kubernetes.azure.com/managedby == "aks" || kubernetes.io/metadata.name in {"app-config-service" ,"cert-manager"}
+      namespaceSelector: kubernetes.azure.com/managedby == "aks" || kubernetes.io/metadata.name in {"app-config-service" ,"cert-manager", "calico-apiserver"}
 --- 
 
 # Allow dns-egress
