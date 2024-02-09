@@ -49,25 +49,6 @@ spec:
   - Egress
 ---  
 
- apiVersion: projectcalico.org/v3
- kind: GlobalNetworkPolicy
- metadata:
-   name: allow-calico-apiserver-egress-tcp
- spec:
-   order: 960
-   namespaceSelector: kubernetes.io/metadata.name == "calico-apiserver"
-   types:
-   - Egress
-   egress:
-   - action: Allow
-     protocol: TCP
-     destination:
-       nets:
-        - 0.0.0.0/0
----  
-
-
-
 # Allow kube-system
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
