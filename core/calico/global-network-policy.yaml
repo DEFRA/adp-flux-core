@@ -4,15 +4,15 @@ metadata:
   name: allow-ffc-demo-internal
 spec:
   order: 940
-  namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+  namespaceSelector: kubernetes.io/metadata.name == "ffc-demo"
   ingress:
     - action: Allow
       source:
-        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+        namespaceSelector: kubernetes.io/metadata.name == "ffc-demo"
   egress:
     - action: Allow
       destination:
-        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+        namespaceSelector: kubernetes.io/metadata.name == "ffc-demo"
 ---        
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
@@ -58,7 +58,7 @@ spec:
   egress:
   - action: Allow
     destination: 
-      namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+      namespaceSelector: kubernetes.io/metadata.name == "kube-system"
     source: 
       namespaceSelector: type == "team-namespace"
   types:
@@ -75,13 +75,13 @@ spec:
   ingress:
   - action: Allow
     destination: 
-      namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+      namespaceSelector: kubernetes.io/metadata.name == "kube-system"
     source: {}
   egress:
   - action: Allow
     destination: {}
     source: 
-      namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+      namespaceSelector: kubernetes.io/metadata.name == "kube-system"
   types:
   - Ingress
   - Egress
@@ -92,15 +92,15 @@ metadata:
   name: allow-kube-system-internal
 spec:
   order: 969
-  namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+  namespaceSelector: kubernetes.io/metadata.name == "kube-system"
   ingress:
     - action: Allow
       source:
-        namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+        namespaceSelector: kubernetes.io/metadata.name == "kube-system"
   egress:
     - action: Allow
       destination:
-        namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
+        namespaceSelector: kubernetes.io/metadata.name == "kube-system"
 ---
 
 apiVersion: projectcalico.org/v3
@@ -155,18 +155,16 @@ spec:
   - action: Allow
 ---
 
-
-
 # Deny All
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: deny-all
-spec:
-  order: 1000
-  types:
-  - Ingress
-  - Egress
+#apiVersion: projectcalico.org/v3
+#kind: GlobalNetworkPolicy
+#metadata:
+#  name: deny-all
+#spec:
+#  order: 1000
+#  types:
+#  - Ingress
+#  - Egress
 ---
 
 
