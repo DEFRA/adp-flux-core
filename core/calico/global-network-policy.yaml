@@ -97,10 +97,6 @@ spec:
     - action: Allow
       destination:
         namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
-  egress:
-    - action: Allow
-      source:
-        namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
 ---
 
 # Allow dns-egress
