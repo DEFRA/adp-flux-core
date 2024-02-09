@@ -93,12 +93,6 @@ metadata:
   name: allow-app-config-service
 spec:
   order: 970
-  ingress:
-    - action: Allow
-      destination:
-        namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
-      source:
-        namespaceSelector: kubernetes.io/metadata.name == "kube-system"
   egress:
     - action: Allow
       source:
