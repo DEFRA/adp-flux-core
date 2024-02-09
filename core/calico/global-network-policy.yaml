@@ -92,7 +92,6 @@ kind: GlobalNetworkPolicy
 metadata:
   name: allow-app-config-service-egress
 spec:
-  namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
   order: 970
   egress:
     - action: Allow
