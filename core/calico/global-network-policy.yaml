@@ -111,6 +111,18 @@ spec:
         namespaceSelector: kubernetes.io/metadata.name == "gatekeeper-system"
 ---
 
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-calico-system-egress
+spec:
+  order: 970
+  egress:
+    - action: Allow
+      source:
+        namespaceSelector: kubernetes.io/metadata.name == "calico-system"
+---
+
 # Allow dns-egress
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
