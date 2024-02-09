@@ -26,7 +26,7 @@ spec:
   - action: Allow
     protocol: TCP
     destination: 
-      namespaceSelector: name == "kube-system"
+      namespaceSelector: kubernetes.io/metadata.name == "kube-system"
     source: {}
 ---  
 
@@ -75,13 +75,13 @@ spec:
    ingress:
    - action: Allow
      destination: 
-       namespaceSelector: name == 'kube-system'
+       namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
      source: {}
    egress:
    - action: Allow
      destination: {}
      source: 
-       namespaceSelector: name == 'kube-system'
+       namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
    types:
    - Ingress
    - Egress
