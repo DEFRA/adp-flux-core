@@ -17,22 +17,6 @@ spec:
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: allow-all-tcp-ingress-kube-system
-spec:
-  order: 940
-  types:
-  - Ingress
-  ingress:
-  - action: Allow
-    protocol: TCP
-    destination: 
-      namespaceSelector: kubernetes.io/metadata.name == "kube-system"
-    source: {}
----  
-
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
   name: allow-team-namespaces-egress
 spec:
   order: 950
@@ -64,28 +48,6 @@ spec:
        nets:
         - 0.0.0.0/0
 ---  
-
- # Allow kube-system
- apiVersion: projectcalico.org/v3
- kind: GlobalNetworkPolicy
- metadata:
-   name: allow-kube-system
- spec:
-   order: 970
-   ingress:
-   - action: Allow
-     destination: 
-       namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
-     source: {}
-   egress:
-   - action: Allow
-     destination: {}
-     source: 
-       namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
-   types:
-   - Ingress
-   - Egress
----
 
 # Allow dns-egress
 apiVersion: projectcalico.org/v3

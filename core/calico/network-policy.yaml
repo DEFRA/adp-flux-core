@@ -35,3 +35,20 @@ spec:
         - 10.178.108.0/27
   egress:
   - action: Allow
+
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-kube-system
+  namespace: kube-system
+spec:
+  types:
+  - Ingress
+  - Egress
+  ingress:
+  - action: Allow
+    protocol: TCP
+  egress:
+  - action: Allow
+    protocol: TCP
