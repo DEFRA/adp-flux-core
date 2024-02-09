@@ -86,6 +86,24 @@ spec:
       destination:
         namespaceSelector: kubernetes.io/metadata.name == 'kube-system'
 ---
+
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-app-config-service-internal
+spec:
+  order: 970
+  namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
+  ingress:
+    - action: Allow
+      source:
+        namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
+  egress:
+    - action: Allow
+      destination:
+        namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
+---
+
 # Allow dns-egress
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
