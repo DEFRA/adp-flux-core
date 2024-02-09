@@ -99,6 +99,18 @@ spec:
         namespaceSelector: kubernetes.io/metadata.name == "app-config-service"
 ---
 
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-gatekeeper-system-egress
+spec:
+  order: 970
+  egress:
+    - action: Allow
+      source:
+        namespaceSelector: kubernetes.io/metadata.name == "gatekeeper-system"
+---
+
 # Allow dns-egress
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
