@@ -1,6 +1,22 @@
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
+  name: allow-ffc-demo-internal
+spec:
+  order: 940
+  namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+  ingress:
+    - action: Allow
+      source:
+        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+  egress:
+    - action: Allow
+      destination:
+        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+---        
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
   name: allow-nginx-ingress-team-namespaces
 spec:
   order: 950
@@ -139,6 +155,8 @@ spec:
   - action: Allow
 ---
 
+
+
 # Deny All
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
@@ -151,17 +169,4 @@ spec:
   - Egress
 ---
 
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: allow-ffc-demo-internal
-spec:
-  namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
-  ingress:
-    - action: Allow
-      source:
-        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
-  egress:
-    - action: Allow
-      destination:
-        namespaceSelector: kubernetes.io/metadata.name == 'ffc-demo'
+
