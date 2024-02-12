@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-calico-apiserver
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      chart: apiserver
+      sourceRef:
+        kind: HelmRepository
+        name: repository-project-calico
+  install:
+    createNamespace: true
+  interval: 5m0s
+  releaseName: calico-apiserver
+  targetNamespace: calico-apiserver

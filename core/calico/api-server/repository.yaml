@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: repository-project-calico
+  namespace: flux-config
+spec:
+  interval: 24h
+  url: https://helm.projectcalico.org
