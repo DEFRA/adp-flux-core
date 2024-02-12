@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: calico-apiserver
+  name: calico-apiserver1
 
 ---
 apiVersion: operator.tigera.io/v1
