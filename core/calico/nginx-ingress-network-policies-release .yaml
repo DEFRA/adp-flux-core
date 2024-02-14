@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: release-calico-api-server
+  name: release-calico-nginx-ingress-network-policies
   namespace: flux-config
 spec:
   chart:
@@ -15,8 +15,10 @@ spec:
   install:
     createNamespace: true
   interval: 5m0s
-  releaseName: calico-api-server
-  targetNamespace: calico-apiserver
+  releaseName: calico-nginx-ingress-network-policies
+  targetNamespace: nginx-ingress
+  dependsOn:
+  - name: release-calico-api-server
   values:
-    apiServer:
-      enabled: true
+    networkPolicy:
+      namespaceName: "nginx-ingress"
