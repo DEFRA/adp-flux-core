@@ -19,6 +19,6 @@ spec:
   targetNamespace: aatestns
   values:
     apiServer:
-      enabled: false
+      enabled: true
     namespace: 
-      name: calico-apiserver-aa
+      name: aatestns
