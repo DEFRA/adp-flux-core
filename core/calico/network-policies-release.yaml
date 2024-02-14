@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: release-adp-helm-core-calico
+  name: release-adp-helm-core-calico-network-policies
   namespace: flux-config
 spec:
   chart:
@@ -15,10 +15,7 @@ spec:
   install:
     createNamespace: true
   interval: 5m0s
-  releaseName: adp-helm-core-calico
+  releaseName: adp-helm-core-calico-network-policies
   targetNamespace: aatestns
-  values:
-    apiServer:
-      enabled: true
-    namespace: 
-      name: aatestns
+  dependsOn:
+  - name: release-adp-helm-core-calico
