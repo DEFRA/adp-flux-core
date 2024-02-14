@@ -1,8 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: repository-adp-calico-helm-chart
-  namespace: flux-config
-spec:
-  interval: 24h
-  url: https://raw.githubusercontent.com/defra-adp-sandpit/adp-helm-repository/main/adp-calico-helm-chart
