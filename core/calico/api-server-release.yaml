@@ -20,5 +20,5 @@ spec:
   values:
     apiServer:
       enabled: true
-    namespace: 
-      name: calico-apiserver
+      namespace: 
+        name: calico-apiserver
