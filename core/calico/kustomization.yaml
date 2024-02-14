@@ -4,3 +4,4 @@ namespace: flux-config
 resources:
   - repository.yaml
   - release.yaml
+  - network-policies-release.yaml
