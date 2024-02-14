@@ -17,8 +17,6 @@ spec:
   interval: 5m0s
   releaseName: calico-api-server
   targetNamespace: calico-apiserver
-  dependsOn:
-  - name: release-azure-service-operator
   values:
     apiServer:
       enabled: true
