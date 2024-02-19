@@ -12,7 +12,7 @@ spec:
       managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
   configuration:
     selectors:
-      - keyFilter: '*'
+      - keyFilter: "*"
         labelFilter: adp-platform
     refresh:
       interval: 1m
@@ -30,30 +30,3 @@ spec:
     refresh:
       interval: 5m
       enabled: true
----
-
-apiVersion: azconfig.io/v1
-kind: AzureAppConfigurationProvider
-metadata:
-  name: kube-system-custom-ca
-  namespace: kube-system
-spec:
-  endpoint: https://${APPCONFIG_NAME}.azconfig.io
-  target:
-    configMapName: custom-ca-trust
-  auth:
-    workloadIdentity:
-      managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
-  configuration:
-    selectors:
-      - keyFilter: 'defra-egress-firewall-cert*'
-        labelFilter: adp-platform
-  secret:
-    target:
-      secretName: custom-ca-trust-secret
-    auth:
-      workloadIdentity:
-        managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
-    refresh:
-      interval: 5m
-      enabled: true      
