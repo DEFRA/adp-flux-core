@@ -1,0 +1,48 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-cert-manager-webhook-ingress
+  namespace: cert-manager
+spec:
+  selector: app == "webhook"
+  types:
+  - Ingress
+  ingress:
+  - action: Allow
+    protocol: TCP
+---
+
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-nginx-ingress
+  namespace: nginx-ingress
+spec:
+  types:
+  - Ingress
+  - Egress
+  ingress:
+  - action: Allow
+    protocol: TCP
+    destination: 
+      ports:
+        - 80
+        - 443
+    source: 
+      nets:
+        - 10.178.108.0/27
+  egress:
+  - action: Allow
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-ffc-demo-internal
+  namespace: ffc-demo
+spec:
+  ingress:
+    - action: Allow
+      protocol: TCP
+  egress:
+    - action: Allow
+      protocol: TCP
