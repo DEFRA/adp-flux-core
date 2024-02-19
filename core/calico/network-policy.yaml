@@ -38,7 +38,7 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: allow-ffc-demo-internal
-  namespace: kube-system
+  namespace: ffc-demo
 spec:
   ingress:
     - action: Allow
