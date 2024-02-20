@@ -7,11 +7,10 @@ spec:
   chart:
     spec:
       chart: adp-calico-helm-chart
-      version: "0.0.4-prerelease16"
+      version: "0.0.4-prerelease24"
       sourceRef:
         kind: HelmRepository
         name: repository-adp-calico-helm-chart
-        namespace: flux-config
   install:
     createNamespace: true
   interval: 5m0s
