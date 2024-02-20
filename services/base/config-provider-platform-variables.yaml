@@ -1,0 +1,32 @@
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: adp-platform-vars
+  namespace: flux-config
+spec:
+  endpoint: https://${APPCONFIG_NAME}.azconfig.io
+  target:
+    configMapName: adp-platform-vars
+  auth:
+    workloadIdentity:
+      managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
+  configuration:
+    selectors:
+      - keyFilter: "*"
+        labelFilter: adp-platform
+    refresh:
+      interval: 1m
+      enabled: true
+      monitoring:
+        keyValues:
+          - key: Sentinel
+            label: adp-platform
+  secret:
+    target:
+      secretName: adp-platform-secrets
+    auth:
+      workloadIdentity:
+        managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
+    refresh:
+      interval: 5m
+      enabled: true
