@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: adp-calico-helm-chart
-      version: "0.0.4-prerelease25"
+      version: "0.0.4-prerelease26"
       sourceRef:
         kind: HelmRepository
         name: repository-adp-calico-helm-chart
@@ -19,3 +19,20 @@ spec:
   values:
     apiServer:
       enabled: true
+      spec:
+        tolerations:
+          - key: "CriticalAddonsOnly"
+            operator: "Equal"
+            value: "true"
+            effect: "NoSchedule"
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.azure.com/mode
+                  operator: In
+                  values:
+                    - 'system'
+        nodeSelector:
+          kubernetes.io/os: "linux"
