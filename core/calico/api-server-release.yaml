@@ -20,19 +20,23 @@ spec:
     apiServer:
       enabled: true
       spec:
-        tolerations:
-          - key: "CriticalAddonsOnly"
-            operator: "Equal"
-            value: "true"
-            effect: "NoSchedule"
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: kubernetes.azure.com/mode
-                  operator: In
-                  values:
-                    - 'system'
-        nodeSelector:
-          kubernetes.io/os: "linux"
+        apiServerDeployment:
+          spec:
+            template:
+              spec:
+                affinity:
+                  nodeAffinity:
+                    requiredDuringSchedulingIgnoredDuringExecution:
+                      nodeSelectorTerms:
+                      - matchExpressions:
+                        - key: kubernetes.azure.com/mode
+                          operator: In
+                          values:
+                          - system
+                nodeSelector:
+                  kubernetes.io/os: linux
+                tolerations:
+                - effect: NoSchedule
+                  key: CriticalAddonsOnly
+                  operator: Equal
+                  value: "true"
