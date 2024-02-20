@@ -4,6 +4,4 @@ namespace: flux-config
 resources:
   - repository.yaml
   - api-server-release.yaml
-  - cert-manager-network-policies-release.yaml
-  - nginx-ingress-network-policies-release.yaml
-  - global-network-policies-release.yaml
+  - network-policies-release.yaml
