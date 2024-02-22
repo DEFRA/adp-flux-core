@@ -7,6 +7,6 @@ resources:
   - ../../../core/azure-service-operator
   - ../../../core/app-config-service
   - ../../../core/grafana
-  - ../../../core/calico
+  # - ../../../core/calico
   - priority-class.yaml
 
