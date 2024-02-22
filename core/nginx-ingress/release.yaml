@@ -39,10 +39,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: Ingress
+              - key: kubernetes.azure.com/mode
                 operator: In
                 values:
-                  - 'true'
+                  - 'system'
       nodeSelector:
         kubernetes.io/os: "linux"
       config:

@@ -1,0 +1,42 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-calico-api-server
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      chart: adp-calico-helm-chart
+      version: "0.1.0"
+      sourceRef:
+        kind: HelmRepository
+        name: repository-adp-calico-helm-chart
+  install:
+    createNamespace: true
+  interval: 5m0s
+  releaseName: calico-api-server
+  targetNamespace: calico-apiserver
+  values:
+    apiServer:
+      enabled: true
+      spec:
+        apiServerDeployment:
+          spec:
+            template:
+              spec:
+                affinity:
+                  nodeAffinity:
+                    requiredDuringSchedulingIgnoredDuringExecution:
+                      nodeSelectorTerms:
+                      - matchExpressions:
+                        - key: kubernetes.azure.com/mode
+                          operator: In
+                          values:
+                          - system
+                nodeSelector:
+                  kubernetes.io/os: linux
+                tolerations:
+                - effect: NoSchedule
+                  key: CriticalAddonsOnly
+                  operator: Equal
+                  value: "true"
