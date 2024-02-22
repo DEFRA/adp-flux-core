@@ -16,6 +16,5 @@ spec:
   dependsOn:
   - name: release-calico-api-server
   - name: release-nginx-ingress
-  - name: release-cert-manager
   values:
     aksIlbSubnetRange: "${LOAD_BALANCER_SUBNET_ADDRESS_PREFIX}"
