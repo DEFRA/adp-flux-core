@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-reloader
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      chart: reloader
+      sourceRef:
+        kind: HelmRepository
+        name: repository-reloader
+  install:
+    createNamespace: true
+  interval: 5m0s
+  releaseName: reloader-service
+  targetNamespace: reloader

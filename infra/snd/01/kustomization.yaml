@@ -13,5 +13,5 @@ patches:
       name: release-app-config-service
   - path: reloader-values.yaml
     target:
-      kind: Deployment
-      name: reloader-reloader
+      kind: HelmRelease
+      name: release-reloader
