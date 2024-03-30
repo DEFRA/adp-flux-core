@@ -9,4 +9,5 @@ resources:
   - ../../../core/app-config-service
   - ../../../core/reloader
   - ../../../core/grafana
+  - ../../../core/calico
   - priority-class.yaml
