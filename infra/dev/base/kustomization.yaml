@@ -6,7 +6,7 @@ resources:
   - ../../../core/cert-manager
   - ../../../core/azure-service-operator
   - ../../../core/app-config-service
-  - ../../../core/reloader
   - ../../../core/grafana
   - ../../../core/calico
+  - ../../../core/reloader
   - priority-class.yaml
