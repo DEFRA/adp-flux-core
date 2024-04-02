@@ -12,9 +12,9 @@ metadata:
   name: reloader
   namespace: flux-config
 spec:
-  # chart:
-  #   spec:
-  #     version: "v1.0.72"
+  chart:
+    spec:
+      version: "1.0.72"
   values:
     reloader:
       deployment:
