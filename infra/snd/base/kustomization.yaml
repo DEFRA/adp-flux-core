@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - platform-team-aso-secret.yaml
-  - namespace.yaml
+  # - namespace.yaml
   - ../../../core/nginx-ingress
   - ../../../core/cert-manager
   - ../../../core/azure-service-operator
   - ../../../core/app-config-service
-  - ../../../core/reloader
+  # - ../../../core/reloader
   - ../../../core/grafana
   - priority-class.yaml
