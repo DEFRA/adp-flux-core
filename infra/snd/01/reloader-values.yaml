@@ -14,7 +14,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 1.0.72
+      version: "v1.0.72"
   values:
     reloader:
       deployment:
