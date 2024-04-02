@@ -5,4 +5,4 @@ metadata:
   namespace: flux-config
 spec:
   interval: 24h
-  url: https://stakater.github.io/stakater-charts/stakater
+  url: https://stakater.github.io/stakater-charts
