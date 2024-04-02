@@ -16,3 +16,27 @@ spec:
   interval: 5m0s
   releaseName: reloader-service
   targetNamespace: reloader
+  values:
+    reloader:
+      deployment:
+        enableHA: true
+        replicas: 2
+        tolerations:
+          - key: "CriticalAddonsOnly"
+            operator: "Equal"
+            value: "true"
+            effect: "NoSchedule"
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.azure.com/mode
+                  operator: In
+                  values:
+                    - 'system'
+        nodeSelector:
+          kubernetes.io/os: "linux"
+      podDisruptionBudget:
+        enabled: false
+        minAvailable: 1
