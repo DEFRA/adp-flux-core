@@ -1,21 +1,21 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: Deployment
-metadata:
-  name: reloader-reloader
-  namespace: default
-spec:
-  replicas: 2
-
 # apiVersion: helm.toolkit.fluxcd.io/v2beta1
-# kind: HelmRelease
+# kind: Deployment
 # metadata:
-#   name: reloader
-#   namespace: flux-config
+#   name: reloader-reloader
+#   namespace: default
 # spec:
-#   chart:
-#     spec:
-#       version: 1.0.72
-#   values:
-#     reloader:
-#       deployment:
-#         replicas: 2
+#   replicas: 2
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: reloader
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 1.0.72
+  values:
+    reloader:
+      deployment:
+        replicas: 2
