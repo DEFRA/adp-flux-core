@@ -16,3 +16,24 @@ spec:
   interval: 5m0s
   releaseName: azure-app-config-service
   targetNamespace: app-config-service
+  values:
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 5
+    tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.azure.com/mode
+              operator: In
+              values:
+                - 'system'
+    nodeSelector:
+      kubernetes.io/os: "linux"

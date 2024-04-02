@@ -7,24 +7,3 @@ spec:
   chart:
     spec:
       version: 1.2.0
-  values:
-    autoscaling:
-      enabled: true
-      minReplicas: 2
-      maxReplicas: 5
-    tolerations:
-      - key: "CriticalAddonsOnly"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: kubernetes.azure.com/mode
-              operator: In
-              values:
-                - 'system'
-    nodeSelector:
-      kubernetes.io/os: "linux"
