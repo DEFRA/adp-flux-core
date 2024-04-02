@@ -18,4 +18,5 @@ spec:
   values:
     reloader:
       deployment:
-        replicas: 1
+        enableHA: true
+        replicas: 2
