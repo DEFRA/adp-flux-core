@@ -19,8 +19,8 @@ spec:
   values:
     autoscaling:
       enabled: true
-      minReplicas: 2
-      maxReplicas: 5
+      minReplicas: 3
+      maxReplicas: 6
     tolerations:
       - key: "CriticalAddonsOnly"
         operator: "Equal"

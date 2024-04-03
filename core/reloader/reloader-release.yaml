@@ -21,7 +21,7 @@ spec:
     reloader:
       deployment:
         enableHA: true
-        replicas: 2
+        replicas: 3
         tolerations:
           - key: "CriticalAddonsOnly"
             operator: "Equal"
@@ -39,5 +39,5 @@ spec:
         nodeSelector:
           kubernetes.io/os: "linux"
       podDisruptionBudget:
-        enabled: false
+        enabled: true
         minAvailable: 1
