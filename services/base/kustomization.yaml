@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - config-provider-platform-variables.yaml
   - config-provider-ca-certs.yaml
+  - config-provider-ca-certs-flux-config.yaml
   - repository.yaml
   
