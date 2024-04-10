@@ -1,0 +1,43 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-reloader
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      chart: reloader
+      version: 1.0.72
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: repository-reloader
+  install:
+    createNamespace: true
+  interval: 5m0s
+  releaseName: reloader-service
+  targetNamespace: reloader
+  values:
+    reloader:
+      deployment:
+        enableHA: true
+        replicas: 3
+        tolerations:
+          - key: "CriticalAddonsOnly"
+            operator: "Equal"
+            value: "true"
+            effect: "NoSchedule"
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.azure.com/mode
+                  operator: In
+                  values:
+                    - 'system'
+        nodeSelector:
+          kubernetes.io/os: "linux"
+      podDisruptionBudget:
+        enabled: true
+        minAvailable: 1

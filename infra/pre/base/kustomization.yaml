@@ -8,5 +8,5 @@ resources:
   - ../../../core/app-config-service
   - ../../../core/grafana
   - ../../../core/calico
+  - ../../../core/reloader
   - priority-class.yaml
-
