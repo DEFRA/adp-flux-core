@@ -19,8 +19,8 @@ spec:
   targetNamespace: reloader
   values:
     reloader:
+      enableHA: true
       deployment:
-        enableHA: true
         replicas: 3
         tolerations:
           - key: "CriticalAddonsOnly"
