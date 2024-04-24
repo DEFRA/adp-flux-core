@@ -11,3 +11,7 @@ patches:
     target:
       kind: HelmRelease
       name: release-app-config-service
+  - path: network-policies-values.yaml
+    target:
+      kind: HelmRelease
+      name: release-calico-network-policies      
