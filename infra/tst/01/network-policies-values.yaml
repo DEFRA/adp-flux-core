@@ -1,0 +1,9 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-calico-network-policies
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 1.5.0
