@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress
+  namespace: flux-config
+spec:
+  chart:
+    spec:
+      version: 1.0.1
+  values:
+    controller:
+      service:
+        annotations:
+          service.beta.kubernetes.io/azure-pls-visibility: "${SUBSCRIPTION_ID}"
+          service.beta.kubernetes.io/azure-pls-auto-approval: "${SUBSCRIPTION_ID}"
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "${LOAD_BALANCER_SUBNET}"
+      image:
+        repository: "${SHARED_CONTAINER_REGISTRY}.azurecr.io/image/nginx-plus-ingress"
+        tag: 3.3.1
+      replicaCount: 3
+      podDisruptionBudget:
+        minAvailable: 2
