@@ -1,0 +1,25 @@
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: adp-platform-second-eventhub
+  namespace: flux-config
+spec:
+  endpoint: https://${APPCONFIG_NAME}.azconfig.io
+  target:
+    configMapName: adp-platform-second-eventhub
+  auth:
+    workloadIdentity:
+      managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
+  configuration:
+    selectors:
+      - keyFilter: "address"
+        labelFilter: adp-platform-secondary-eventhub
+  secret:
+    target:
+      secretName: adp-platform-second-eventhub-secret
+    auth:
+      workloadIdentity:
+        managedIdentityClientId: ${APPCONFIG_MI_CLIENTID}
+    refresh:
+      interval: 5m
+      enabled: true

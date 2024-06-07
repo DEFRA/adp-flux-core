@@ -5,3 +5,4 @@ metadata:
 resources: 
   - ../../base
   - services.yaml
+  - config-provider-second-event-hub.yaml
