@@ -4,7 +4,7 @@ metadata:
   name: services-repository
   namespace: flux-config
 spec:
-  interval: 5m
+  interval: 2m30s
   ref:
     branch: main
   url: ssh://git@github.com/DEFRA/adp-flux-services/
