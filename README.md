@@ -30,13 +30,22 @@ This repository contains the Flux configuration for the ADP cluster core compone
 │       ├── base
 │       └── 01/02
 ├── core
-│   ├── nginx-ingress
-|
-|
-|
+|   ├── app-config-service
+|   ├── azure-service-operator
+|   ├── calico    
+|   ├── cert-mamaner
+|   ├── grafana
+|   ├── nginx-ingress
 ├── services
+   ├── base
    ├── snd                                          
-      ├── 01
-
-                                 
+   |   ├── 01
+   ├── dev                                          
+   |   ├── 01
+   ├── tst                                          
+   |   ├── 01      
+   ├── pre                                          
+   |   ├── 01                              
+   ├── prd                                          
+   |   ├── 01
 ```
