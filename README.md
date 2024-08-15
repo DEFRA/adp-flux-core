@@ -33,7 +33,7 @@ This repository contains the Flux configuration for the ADP cluster core compone
 |   ├── app-config-service
 |   ├── azure-service-operator
 |   ├── calico    
-|   ├── cert-mamaner
+|   ├── cert-manager
 |   ├── grafana
 |   ├── nginx-ingress
 ├── services
