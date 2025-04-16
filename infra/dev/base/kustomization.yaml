@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - platform-team-aso-secret.yaml
   - ../../../core/nginx-ingress
+  - ../../../core/ingress-nginx
   - ../../../core/cert-manager
   - ../../../core/azure-service-operator
   - ../../../core/app-config-service
