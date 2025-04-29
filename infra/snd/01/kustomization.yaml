@@ -9,6 +9,10 @@ patches:
     target:
       kind: HelmRelease
       name: release-nginx-ingress
+  - path: ingress-nginx-values.yaml
+    target:
+      kind: HelmRelease
+      name: release-ingress-nginx
   - path: app-config-service-values.yaml
     target:
       name: release-app-config-service
