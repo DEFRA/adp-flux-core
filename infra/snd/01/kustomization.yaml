@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../base
   - ../../../core/calico
+  - ../../../../core/ingress-nginx
 patches:
   - path: nginx-ingress-values.yaml
     target:
