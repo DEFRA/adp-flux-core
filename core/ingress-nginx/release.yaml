@@ -11,11 +11,9 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: repository-ingress-nginx
-  install:
-    createNamespace: true
   interval: 5m0s
   releaseName: ingress-nginx
-  targetNamespace: ingress-nginx
+  targetNamespace: kube-system
   values:
     defaultBackend:
       nodeSelector:
