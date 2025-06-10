@@ -29,6 +29,7 @@ spec:
           service.beta.kubernetes.io/azure-load-balancer-internal: "true"
           service.beta.kubernetes.io/azure-pls-create: "true"
           service.beta.kubernetes.io/azure-pls-name: "aks-loadbalancer-pls"
+          service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
       tolerations:
         - key: "CriticalAddonsOnly"
           operator: "Equal"
